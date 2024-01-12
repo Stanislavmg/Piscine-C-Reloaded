@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 20:35:37 by sgoremyk          #+#    #+#             */
-/*   Updated: 2024/01/12 17:57:23 by sgoremyk         ###   ########.fr       */
+/*   Created: 2023/11/19 09:57:36 by sgoremyk          #+#    #+#             */
+/*   Updated: 2023/11/19 11:41:19 by sgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb)
+void	ft_swap(int *a, int *b)
 {
-	int	res;
-	int	i;
+	int	temp;
 
-	i = 1;
-	res = 1;
-	if ((nb < 0) || (nb > 12))
-		return (0);
-	while (i <= nb)
-	{
-		res *= i;
-		i++;
-	}
-	return (res);
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
+
+/*int	main(void)
+{
+	int	a;
+	int	b;
+	int	*pa;
+	int	*pb;
+
+	a = 42;
+	b = 24;
+	pa = &a;
+	pb = &b;
+	ft_swap(pa, pb);
+	printf("a=%d b=%d\n", a, b);
+}*/

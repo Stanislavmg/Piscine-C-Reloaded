@@ -6,11 +6,11 @@
 /*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:09:38 by sgoremyk          #+#    #+#             */
-/*   Updated: 2023/12/04 18:13:04 by sgoremyk         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:11:43 by sgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putchar(char c);
 
 int	main(int argc, char **argv)
 {
@@ -22,9 +22,11 @@ int	main(int argc, char **argv)
 	{
 		j = 0;
 		while (argv[i][j])
+		{
+			ft_putchar(argv[i][j]);
 			j++;
-		write(1, argv[i], j);
-		write(1, "\n", 1);
+		}
+		ft_putchar('\n');
 		i++;
 	}
 	return (0);

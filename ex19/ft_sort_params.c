@@ -6,14 +6,13 @@
 /*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:17:29 by sgoremyk          #+#    #+#             */
-/*   Updated: 2023/12/04 18:32:52 by sgoremyk         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:12:14 by sgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
 int		ft_strcmp(char *s1, char *s2);
 void	print_param(int argc, char **argv);
+void	ft_putchar(char c);
 
 int	main(int argc, char **argv)
 {
@@ -65,9 +64,11 @@ void	print_param(int argc, char **argv)
 	{
 		j = 0;
 		while (argv[i][j])
+		{
+			ft_putchar(argv[i][j]);
 			j++;
-		write(1, argv[i], j);
-		write(1, "\n", 1);
+		}
+		ft_putchar('\n');
 		i++;
 	}
 }

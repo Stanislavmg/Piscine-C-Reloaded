@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 20:35:37 by sgoremyk          #+#    #+#             */
-/*   Updated: 2024/01/12 17:57:23 by sgoremyk         ###   ########.fr       */
+/*   Created: 2024/01/12 16:55:37 by sgoremyk          #+#    #+#             */
+/*   Updated: 2024/01/12 17:13:03 by sgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb)
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
-	int	res;
 	int	i;
 
-	i = 1;
-	res = 1;
-	if ((nb < 0) || (nb > 12))
-		return (0);
-	while (i <= nb)
+	i = 0;
+	while (i < length)
 	{
-		res *= i;
+		f(tab[i]);
 		i++;
 	}
-	return (res);
 }

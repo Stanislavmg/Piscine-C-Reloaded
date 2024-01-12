@@ -6,21 +6,20 @@
 /*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:49:46 by sgoremyk          #+#    #+#             */
-/*   Updated: 2023/11/28 17:31:52 by sgoremyk         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:02:22 by sgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putchar(char c);
 
 void	ft_putstr(char *str)
 {
 	unsigned int	i;
 
 	i = 0;
-	if (str != 0)
+	while (str[i])
 	{
-		while (str[i])
-			i++;
-		write(1, str, i);
+		ft_putchar(str[i]);
+		i++;
 	}
 }

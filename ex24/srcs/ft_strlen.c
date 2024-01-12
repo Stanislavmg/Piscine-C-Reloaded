@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 20:35:37 by sgoremyk          #+#    #+#             */
-/*   Updated: 2024/01/12 17:57:23 by sgoremyk         ###   ########.fr       */
+/*   Created: 2023/11/23 15:37:12 by sgoremyk          #+#    #+#             */
+/*   Updated: 2023/11/28 17:31:20 by sgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb)
+int	ft_strlen(char *str)
 {
-	int	res;
 	int	i;
 
-	i = 1;
-	res = 1;
-	if ((nb < 0) || (nb > 12))
-		return (0);
-	while (i <= nb)
-	{
-		res *= i;
+	i = 0;
+	if (str == 0)
+		return (i);
+	while (str[i])
 		i++;
-	}
-	return (res);
+	return (i);
 }
+
+/*int	main(void)
+{
+	char	s1[] = "123456789";
+	char	*p;
+
+	p = 0;
+	printf("%d\n",ft_strlen(s1));
+	printf("%d\n",ft_strlen(p));
+	return (0);
+}*/

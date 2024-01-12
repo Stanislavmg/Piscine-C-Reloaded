@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_count_if.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 20:35:37 by sgoremyk          #+#    #+#             */
-/*   Updated: 2024/01/12 17:57:23 by sgoremyk         ###   ########.fr       */
+/*   Created: 2024/01/12 16:59:58 by sgoremyk          #+#    #+#             */
+/*   Updated: 2024/01/12 18:00:47 by sgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb)
+int	ft_count_if(char **tab, int (*f)(char*))
 {
-	int	res;
 	int	i;
+	int	count;
 
-	i = 1;
-	res = 1;
-	if ((nb < 0) || (nb > 12))
-		return (0);
-	while (i <= nb)
+	i = -1;
+	count = 0;
+	while (tab[++i])
 	{
-		res *= i;
-		i++;
+		if (f(tab[i]) == 1)
+			count++;
 	}
-	return (res);
+	return (count);
 }

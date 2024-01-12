@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 19:08:32 by sgoremyk          #+#    #+#             */
-/*   Updated: 2023/11/18 10:57:49 by sgoremyk         ###   ########.fr       */
+/*   Created: 2024/01/12 17:29:51 by sgoremyk          #+#    #+#             */
+/*   Updated: 2024/01/12 18:01:38 by sgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putchar(char c);
 
 void	ft_print_alphabet(void)
 {
@@ -19,7 +19,7 @@ void	ft_print_alphabet(void)
 	c = 'a';
 	while (c <= 'z')
 	{
-		write(1, &c, 1);
+		ft_putchar(c);
 		c++;
 	}
 }

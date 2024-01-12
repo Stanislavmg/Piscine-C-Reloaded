@@ -1,54 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   open_file.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/12 15:04:54 by sgoremyk          #+#    #+#             */
+/*   Updated: 2024/01/12 15:31:05 by sgoremyk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "display_file.h"
 
 void	read_file(int fd)
 {
-	char    buf[BUF_SIZE];
+	char	buf[BUF_SIZE];
 	int		ch_count;
 
-	ch_count = 0;
-	while((ch_count = read(fd, buf, BUF_SIZE)) != 0)
+	ch_count = read(fd, buf, BUF_SIZE);
+	while (ch_count)
+	{
+		if (ch_count == -1)
+		{
+			ft_puts("Cannot read file.");
+			return ;
+		}
 		write(1, buf, ch_count);
-}
-
-int	ft_open(char *path)
-{
-	int	fd;
-
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-	{
-		ft_puts("Open error.");
-		return (-1);
+		ch_count = read(fd, buf, BUF_SIZE);
 	}
-	return (fd);
 }
 
-int	ft_close(int fd)
+int	valid_args(int argc)
 {
-	if (close(fd))
+	if (argc > 2)
 	{
-		ft_puts("Close error.");
-		return (-1);
+		ft_puts("Too many arguments.");
+		return (1);
+	}
+	else if (argc < 2)
+	{
+		ft_puts("File name missing.");
+		return (1);
 	}
 	return (0);
-}
-
-int valid_args(int argc, char **argv)
-{
-    if (argc > 2)
-    {
-        ft_puts("Too many arguments.");
-        return (1);
-    }
-    else if (argc < 2)
-    {
-        ft_puts("File name missing.");
-        return (1);
-    }
-    else if (NAME_SIZE < ft_strlen(argv[1]))
-    {
-        ft_puts("Cannot read file.");
-        return (1);
-    }
-    return (0);
 }
